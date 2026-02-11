@@ -51,7 +51,15 @@ Head over to the [Releases](https://github.com/ChloeVPin/notebloom/releases) pag
 
 ## A Note About Source Code
 
-Notebloom is closed-source software. This repository is here to host releases and provide a space for updates and support. The source code is not available publicly.
+Notebloom is currently closed-source, but that's changing soon. I'm working on a complete code rewrite to make the app smaller and more efficient. Once that's done, the source code will be released publicly.
+
+**What's coming:**
+- Full source code release
+- Smaller package size
+- Cleaner, more maintainable codebase
+- Open for contributions
+
+Stay tuned for updates.
 
 ## License
 
