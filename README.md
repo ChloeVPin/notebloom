@@ -8,9 +8,9 @@
 
 ![version](https://img.shields.io/badge/version-1.0.0-e8b4c8?style=flat-square)
 ![platform](https://img.shields.io/badge/platform-windows-f5dce8?style=flat-square)
-![license](https://img.shields.io/badge/license-proprietary-c48da6?style=flat-square)
+![license](https://img.shields.io/badge/license-MIT-f3d2df?style=flat-square)
 
-[Download](https://github.com/ChloeVPin/notebloom/releases/latest) • [Report Issue](https://github.com/ChloeVPin/notebloom/issues)
+[Website](https://notebloom-three.vercel.app/) • [Download](https://github.com/ChloeVPin/notebloom/releases/latest) • [Report Bug](https://github.com/ChloeVPin/notebloom/issues/new?template=bug_report.yml) • [Request Feature](https://github.com/ChloeVPin/notebloom/issues/new?template=feature_request.yml)
 
 </div>
 
@@ -18,9 +18,8 @@
 
 ## About
 
-Notebloom is a lightweight notepad app designed with a calm, pastel aesthetic. It's perfect for quick notes, journaling, or just organizing your thoughts in a peaceful environment.
-
-The interface features soft pink tones and smooth animations that make writing feel less like work and more like a moment of calm in your day.
+Notebloom is a lightweight desktop notes app with a calm look and fast workflow.
+It is built for quick capture, daily writing, and simple organization without clutter.
 
 ## Download
 
@@ -34,8 +33,27 @@ Head over to the [Releases](https://github.com/ChloeVPin/notebloom/releases) pag
 - Simple, distraction-free writing space
 - Automatic saving so you never lose your work
 - Clean sidebar to organize multiple notes
-- Soft pastel pink color scheme
+- Pin notes for quick access
+- Export notes to `.txt`
+- Word and character count
 - Lightweight and fast
+
+## Website
+
+The public website lives at [notebloom-three.vercel.app](https://notebloom-three.vercel.app/).
+
+## Source Code
+
+The application source code is in the [`notebloom/`](./notebloom) directory.
+
+## Development
+
+```bash
+cd notebloom/frontend
+npm install
+cd ..
+wails dev
+```
 
 ## Requirements
 
@@ -49,21 +67,14 @@ Head over to the [Releases](https://github.com/ChloeVPin/notebloom/releases) pag
 3. Follow the setup wizard
 4. That's it! Launch Notebloom from your start menu
 
-## A Note About Source Code
+## Feedback and Requests
 
-Notebloom is currently closed-source, but that's changing soon. I'm working on a complete code rewrite to make the app smaller and more efficient. Once that's done, the source code will be released publicly.
-
-**What's coming:**
-- Full source code release
-- Smaller package size
-- Cleaner, more maintainable codebase
-- Open for contributions
-
-Stay tuned for updates.
+- Bugs, use the [Bug Report template](https://github.com/ChloeVPin/notebloom/issues/new?template=bug_report.yml)
+- Ideas, use the [Feature Request template](https://github.com/ChloeVPin/notebloom/issues/new?template=feature_request.yml)
 
 ## License
 
-Proprietary software. All rights reserved.
+[MIT](./LICENSE)
 
 ## Contact
 

@@ -1,0 +1,48 @@
+name: Bug Report
+description: Report a reproducible problem in Notebloom
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting this. Please include enough detail so this can be reproduced quickly.
+  - type: textarea
+    id: summary
+    attributes:
+      label: What happened?
+      description: A short description of the bug and what you expected.
+      placeholder: "When I click Save As, the app freezes for 3-5 seconds."
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: List exact steps.
+      placeholder: |
+        1. Open Notebloom
+        2. Create a new note
+        3. Click Save As
+        4. Observe freeze
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: App version
+      placeholder: "1.0.0"
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: OS version
+      placeholder: "Windows 11 23H2"
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Extra context
+      description: Logs, screenshots, or anything else helpful.

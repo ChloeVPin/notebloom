@@ -1,5 +1,16 @@
 # Changelog
 
+## Version 1.0.1
+*March 4, 2026*
+
+Repository and open-source release updates.
+
+**Changed**
+- Added MIT license
+- Added GitHub issue templates for bug reports and feature requests
+- Updated README with website link, source layout, and contribution links
+- Updated ignore rules to keep local/editor/build files out of git
+
 ## Version 1.0.0
 *February 11, 2026*
 

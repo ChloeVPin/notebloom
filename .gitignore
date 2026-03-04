@@ -2,9 +2,14 @@
 .DS_Store
 Thumbs.db
 
+# Editor settings
+.vscode/
+
 # Local project directories
 bloombatch-dist/
 bloombatch-website/
-notebloom/
 notebloom-dist/
 notebloom-website/
+
+# Build artifacts
+*.exe

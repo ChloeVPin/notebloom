@@ -1,0 +1,20 @@
+{
+  "$schema": "https://wails.io/schemas/config.v2.json",
+  "name": "Notebloom",
+  "outputfilename": "Notebloom",
+  "frontend:install": "npm install",
+  "frontend:build": "npm run build",
+  "frontend:dev:watcher": "npm run dev",
+  "frontend:dev:serverUrl": "auto",
+  "author": {
+    "name": "Chloe",
+    "email": "chloevalesquez@gmail.com"
+  },
+  "info": {
+    "companyName": "Chloe",
+    "productName": "Notebloom",
+    "productVersion": "1.0.0",
+    "copyright": "Copyright © 2026 Chloe.",
+    "comments": "A cute, calm, girly notepad app"
+  }
+}

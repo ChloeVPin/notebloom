@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notebloom</title>
+  <link rel="stylesheet" href="./src/style.css">
+</head>
+<body>
+  <div class="app">
+    <div class="main">
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <button class="btn-new" id="btn-new">+ New Note</button>
+        </div>
+        <div class="note-list" id="note-list"></div>
+        <div class="sidebar-empty" id="sidebar-empty">
+          <p>No notes yet</p>
+          <p class="hint">Click "+ New Note" to start writing</p>
+        </div>
+      </aside>
+
+      <section class="editor-panel" id="editor-panel">
+        <div class="editor-placeholder" id="editor-placeholder">
+          <p>Select a note or create a new one</p>
+        </div>
+        <div class="editor-content" id="editor-content" style="display:none;">
+          <input
+            type="text"
+            class="editor-title"
+            id="editor-title"
+            placeholder="Note title..."
+            spellcheck="false"
+            autocomplete="off"
+          />
+          <textarea
+            class="editor-body"
+            id="editor-body"
+            placeholder="Start writing..."
+            spellcheck="true"
+          ></textarea>
+          <div class="editor-footer">
+            <div class="editor-footer-left">
+              <span class="editor-status" id="editor-status"></span>
+              <span class="editor-wordcount" id="editor-wordcount"></span>
+            </div>
+            <div class="editor-footer-right">
+              <button class="btn-save" id="btn-save">Save</button>
+              <button class="btn-save-as" id="btn-save-as">Save As</button>
+              <button class="btn-delete" id="btn-delete">Delete</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Custom Context Menu -->
+  <div class="context-menu" id="context-menu">
+    <button class="context-menu-item" data-action="pin" id="ctx-pin">Pin to Top</button>
+    <button class="context-menu-item" data-action="save-as" id="ctx-save-as">Save As...</button>
+    <div class="context-menu-divider"></div>
+    <button class="context-menu-item context-menu-item--danger" data-action="delete" id="ctx-delete">Delete</button>
+  </div>
+
+  <script src="./src/main.js" type="module"></script>
+</body>
+</html>
