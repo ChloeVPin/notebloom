@@ -3,10 +3,8 @@
 Thumbs.db
 
 # Local project directories
-bloombatch/
 bloombatch-dist/
 bloombatch-website/
 notebloom/
 notebloom-dist/
 notebloom-website/
-portfolio/
