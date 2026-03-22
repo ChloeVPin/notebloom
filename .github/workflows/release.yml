@@ -58,7 +58,7 @@ jobs:
             throw "Unable to extract release notes from CHANGELOG.md."
           }
 
-          Set-Content -Path release-artifacts\release-notes.md -Value ("# Notebloom " + $env:GITHUB_REF_NAME + "`n`n" + $match.Value.Trim() + "`n") -Encoding UTF8
+          Set-Content -Path release-artifacts\release-notes.md -Value ($match.Value.Trim() + "`n") -Encoding UTF8
 
       - name: Publish GitHub release
         uses: softprops/action-gh-release@v2
