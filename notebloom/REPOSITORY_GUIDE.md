@@ -11,11 +11,12 @@ This document covers the current GitHub and release workflow for Notebloom.
 ## Repository Layout
 
 ```text
-notebloom/
+.
 |- .github/              GitHub templates and workflows
 |- build/                Wails build configuration and Windows assets
 |- frontend/             React + TypeScript frontend source
 |- app.go                Go backend application logic
+|- app_test.go           Backend tests
 |- main.go               Wails entry point
 |- go.mod                Go module definition
 |- go.sum                Go module checksums

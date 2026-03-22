@@ -1,0 +1,63 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.25.4"
+
+      - name: Set up Wails
+        uses: wailsapp/setup-wails@v5
+        with:
+          wails-version: v2.11.0
+
+      - name: Install frontend dependencies
+        working-directory: frontend
+        run: npm ci
+
+      - name: Build installer
+        run: wails build -nsis
+
+      - name: Prepare release artifacts
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force release-artifacts | Out-Null
+          Copy-Item "build/bin/*Setup*.exe" "release-artifacts/" -Force
+          Copy-Item "CHANGELOG.md" "release-artifacts/CHANGELOG.md" -Force
+
+          $content = Get-Content "CHANGELOG.md" -Raw
+          $match = [regex]::Match($content, '(?s)^## .*?(?=^## |\z)')
+          if (-not $match.Success) {
+            throw "Unable to extract release notes from CHANGELOG.md"
+          }
+
+          $releaseNotes = "# Notebloom $env:GITHUB_REF_NAME`n`n$($match.Value.Trim())`n"
+          Set-Content -Path "release-artifacts/release-notes.md" -Value $releaseNotes -Encoding UTF8
+
+      - name: Publish GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            release-artifacts/*.exe
+            release-artifacts/CHANGELOG.md
+          body_path: release-artifacts/release-notes.md

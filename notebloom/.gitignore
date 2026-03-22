@@ -1,5 +1,6 @@
 # Wails build outputs
 build/bin/
+release-artifacts/
 
 # Frontend dependencies and build
 frontend/node_modules/
