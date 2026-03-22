@@ -26,10 +26,12 @@ jobs:
         with:
           go-version: "1.25.4"
 
-      - name: Set up Wails
-        uses: wailsapp/setup-wails@v5
-        with:
-          wails-version: v2.11.0
+      - name: Install Wails CLI
+        shell: pwsh
+        run: |
+          go install github.com/wailsapp/wails/v2/cmd/wails@v2.11.0
+          "$env:USERPROFILE\go\bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+          wails version
 
       - name: Install frontend dependencies
         working-directory: frontend
