@@ -31,17 +31,6 @@ Desktop rewrite and release workflow update.
 - Corrupt note files are skipped during load instead of breaking startup
 - Save operations no longer rely on direct overwrite writes
 
-## Version 1.0.1
-*March 4, 2026*
-
-Repository and open-source release updates.
-
-**Changed**
-- Added MIT license
-- Added GitHub issue templates for bug reports and feature requests
-- Updated README with website link, source layout, and contribution links
-- Updated ignore rules to keep local/editor/build files out of git
-
 ## Version 1.0.0
 *February 11, 2026*
 
@@ -55,5 +44,4 @@ Initial release of Notebloom.
 - Windows installer with desktop shortcuts
 
 [1.1.0]: https://github.com/ChloeVPin/notebloom/releases/tag/v1.1.0
-[1.0.1]: https://github.com/ChloeVPin/notebloom/releases/tag/v1.0.1
 [1.0.0]: https://github.com/ChloeVPin/notebloom/releases/tag/v1.0.0

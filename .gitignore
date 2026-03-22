@@ -1,15 +1,49 @@
+# Wails build outputs
+build/bin/
+release-artifacts/
+
+# Frontend dependencies and build
+frontend/node_modules/
+frontend/dist/
+
+# Go build artifacts
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool
+*.out
+
+# Go workspace file
+go.work
+
 # OS generated files
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
 
-# Editor settings
+# IDE files
 .vscode/
+.idea/
+*.swp
+*.swo
+*~
 
-# Local project directories
-bloombatch-dist/
-bloombatch-website/
-notebloom-dist/
-notebloom-website/
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# Build artifacts
-*.exe
+# Temporary files
+*.tmp
+*.temp

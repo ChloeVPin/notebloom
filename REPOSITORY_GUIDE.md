@@ -29,15 +29,16 @@ This document covers the current GitHub and release workflow for Notebloom.
 ## Release Flow
 
 1. Update `wails.json` with the new `productVersion`.
-2. Update `CHANGELOG.md` with the new release section.
-3. Build the Windows installer locally if needed with:
+2. Update `frontend/package.json` with the matching frontend version.
+3. Update `CHANGELOG.md` with the new release section.
+4. Build the Windows installer locally if needed with:
 
 ```bash
 wails build -nsis
 ```
 
-4. Push a tag in the form `vX.X.X`.
-5. GitHub Actions publishes the release and uploads:
+5. Push a tag in the form `vX.X.X`.
+6. GitHub Actions publishes the release and uploads:
    - `Notebloom Setup X.X.X.exe`
    - `CHANGELOG.md`
 

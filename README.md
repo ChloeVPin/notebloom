@@ -47,12 +47,12 @@ The public website lives at [notebloom-three.vercel.app](https://notebloom-three
 
 ## Source Code
 
-The application source code is in the [`notebloom/`](./notebloom) directory.
+The application source code is in the repository root.
 
 ## Development
 
 ```bash
-cd notebloom/frontend
+cd frontend
 npm install
 cd ..
 wails dev
