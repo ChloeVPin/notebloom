@@ -26,7 +26,7 @@ It is built for quick capture, daily writing, and simple organization without cl
 Head over to the [Releases](https://github.com/ChloeVPin/notebloom/releases) page to download the latest version.
 
 **Current version:** 1.1.0  
-**Files:** `Notebloom Setup 1.1.0.exe` and `CHANGELOG.md`
+**Files:** `Notebloom.exe`
 
 ## What's Inside
 
@@ -66,10 +66,8 @@ wails dev
 ## Installation
 
 1. Download the installer from the releases page
-2. Run the `.exe` file
-3. Follow the setup wizard
-4. Launch Notebloom from your Start Menu or Desktop shortcut
-5. Keep the matching `CHANGELOG.md` from the release if you want a local copy of the version history
+2. Run `Notebloom.exe`
+3. Launch Notebloom
 
 ## Feedback and Requests
 

@@ -15,7 +15,7 @@ Desktop rewrite and release workflow update.
 - Added live note-aware window titles
 - Added autosave with debounced writes
 - Added atomic note writes and safer export handling
-- Added a release workflow that publishes the Windows installer and `CHANGELOG.md`
+- Added a release workflow that publishes the Windows app executable and release notes
 - Added backend tests for save/load and corrupt-file handling
 
 **Changed**

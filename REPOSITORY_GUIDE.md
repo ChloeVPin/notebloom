@@ -39,15 +39,13 @@ wails build -nsis
 
 5. Push a tag in the form `vX.X.X`.
 6. GitHub Actions publishes the release and uploads:
-   - `Notebloom Setup X.X.X.exe`
-   - `CHANGELOG.md`
+   - `Notebloom.exe`
 
 ## Release Assets
 
 Each GitHub release should include:
 
-- Windows installer executable
-- Matching `CHANGELOG.md`
+- Windows app executable
 - Release notes derived from the top changelog section
 
 ## Development

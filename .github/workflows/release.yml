@@ -37,24 +37,20 @@ jobs:
         working-directory: frontend
         run: npm ci
 
-      - name: Build Windows installer
-        run: wails build -nsis
+      - name: Build Windows app
+        run: wails build
 
       - name: Prepare release assets
         shell: pwsh
         run: |
           New-Item -ItemType Directory -Force release-artifacts | Out-Null
 
-          $installer = Get-ChildItem build -Recurse -File -Filter "*Setup*.exe" | Select-Object -First 1
-          if (-not $installer) {
-            $installer = Get-ChildItem build -Recurse -File -Filter "*.exe" | Select-Object -First 1
-          }
-          if (-not $installer) {
-            throw "Installer not found in build\\bin."
+          $app = Get-Item build\bin\Notebloom.exe
+          if (-not $app) {
+            throw "Notebloom.exe not found in build\\bin."
           }
 
-          Copy-Item $installer.FullName release-artifacts\
-          Copy-Item CHANGELOG.md release-artifacts\CHANGELOG.md
+          Copy-Item $app.FullName release-artifacts\Notebloom.exe
 
           $changelog = Get-Content CHANGELOG.md -Raw
           $match = [regex]::Match($changelog, '(?ms)^## .*?(?=^## |\z)')
@@ -67,7 +63,7 @@ jobs:
       - name: Publish GitHub release
         uses: softprops/action-gh-release@v2
         with:
+          overwrite_files: true
           body_path: release-artifacts/release-notes.md
           files: |
-            release-artifacts/*.exe
-            release-artifacts/CHANGELOG.md
+            release-artifacts\Notebloom.exe
