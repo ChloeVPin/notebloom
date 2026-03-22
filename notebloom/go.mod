@@ -2,6 +2,8 @@ module notebloom-wails
 
 go 1.23
 
+toolchain go1.25.4
+
 require github.com/wailsapp/wails/v2 v2.11.0
 
 require (

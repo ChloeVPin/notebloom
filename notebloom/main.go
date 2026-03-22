@@ -37,6 +37,7 @@ func main() {
 			DisableWindowIcon:    false,
 			Theme:                windows.SystemDefault,
 		},
+		Frameless: true,
 	})
 
 	if err != nil {

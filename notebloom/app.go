@@ -57,6 +57,48 @@ func (a *App) getNoteFilePath(id string) string {
 	return filepath.Join(a.notesDir, fmt.Sprintf("%s.json", id))
 }
 
+// writeFileAtomic writes data to disk using a temp file in the target directory,
+// then replaces the destination in one step.
+func writeFileAtomic(filePath string, data []byte, perm os.FileMode) error {
+	dir := filepath.Dir(filePath)
+	if err := os.MkdirAll(dir, 0755); err != nil {
+		return err
+	}
+
+	tmpFile, err := os.CreateTemp(dir, "."+filepath.Base(filePath)+".*.tmp")
+	if err != nil {
+		return err
+	}
+	tmpPath := tmpFile.Name()
+
+	cleanup := func() {
+		_ = tmpFile.Close()
+		_ = os.Remove(tmpPath)
+	}
+	defer cleanup()
+
+	if _, err := tmpFile.Write(data); err != nil {
+		return err
+	}
+	if err := tmpFile.Sync(); err != nil {
+		return err
+	}
+	if err := tmpFile.Close(); err != nil {
+		return err
+	}
+
+	if err := os.Rename(tmpPath, filePath); err != nil {
+		if removeErr := os.Remove(filePath); removeErr != nil && !os.IsNotExist(removeErr) {
+			return fmt.Errorf("replace destination: %w", removeErr)
+		}
+		if renameErr := os.Rename(tmpPath, filePath); renameErr != nil {
+			return renameErr
+		}
+	}
+
+	return os.Chmod(filePath, perm)
+}
+
 // LoadNotes loads all notes from disk
 func (a *App) LoadNotes() ([]Note, error) {
 	a.ensureNotesDir()
@@ -102,13 +144,13 @@ func (a *App) LoadNotes() ([]Note, error) {
 // SaveNote saves a note to disk
 func (a *App) SaveNote(note Note) error {
 	a.ensureNotesDir()
-	
+
 	data, err := json.MarshalIndent(note, "", "  ")
 	if err != nil {
 		return err
 	}
-	
-	return os.WriteFile(a.getNoteFilePath(note.ID), data, 0644)
+
+	return writeFileAtomic(a.getNoteFilePath(note.ID), data, 0644)
 }
 
 // DeleteNote deletes a note from disk
@@ -140,8 +182,8 @@ func (a *App) SaveAsNote(title, content string) (map[string]interface{}, error) 
 	if err != nil || filePath == "" {
 		return map[string]interface{}{"success": false}, nil
 	}
-	
-	if err := os.WriteFile(filePath, []byte(content), 0644); err != nil {
+
+	if err := writeFileAtomic(filePath, []byte(content), 0644); err != nil {
 		return map[string]interface{}{"success": false}, err
 	}
 	
