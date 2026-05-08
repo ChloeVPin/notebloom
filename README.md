@@ -114,9 +114,9 @@ npm run tauri build
 ┌────────────────▼────────────────────┐
 │         Local JSON files            │
 │  %APPDATA%/com.chloe.notebloom/     │  ← Windows
-│  ~/Library/Application Support/…   │  ← macOS
-│  ~/.local/share/…                  │  ← Linux
-│    notes.json · settings.json      │
+│  ~/Library/Application Support/…    │  ← macOS
+│  ~/.local/share/…                   │  ← Linux
+│    notes.json · settings.json       │
 └─────────────────────────────────────┘
 ```
 
